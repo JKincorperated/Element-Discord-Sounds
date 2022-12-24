@@ -67,7 +67,11 @@ for i in os.listdir(os.path.join(os.getenv("LOCALAPPDATA"), "element-desktop")):
 
 pathtodata = os.path.join(os.getenv("LOCALAPPDATA"), "element-desktop", "app-" + str(ma) + "." + str(mi) + "." + str(pa), "resources", "webapp.asar")
 
-os.remove(os.path.join(os.getenv("LOCALAPPDATA"), "element-desktop", "app-" + str(ma) + "." + str(mi) + "." + str(pa), "resources", "webapp.asar.old"))
+try:
+    os.remove(os.path.join(os.getenv("LOCALAPPDATA"), "element-desktop", "app-" + str(ma) + "." + str(mi) + "." + str(pa), "resources", "webapp.asar.old"))
+except:
+    pass
+
 os.rename(pathtodata, os.path.join(os.getenv("LOCALAPPDATA"), "element-desktop", "app-" + str(ma) + "." + str(mi) + "." + str(pa), "resources", "webapp.asar.old"))
 
 print(colorama.Fore.LIGHTGREEN_EX, end="")
