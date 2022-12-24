@@ -12,3 +12,4 @@ A simple script that replaces elements data with a modified version so you get d
 2. Execute the script
 3. Profit
 
+If you think there should be a sound change just say in an issue / pull request.
