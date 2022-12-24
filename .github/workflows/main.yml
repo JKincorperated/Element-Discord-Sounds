@@ -24,11 +24,12 @@ jobs:
           python -m pip install -r ./requirements.txt  
       - name: Compile
         run: |
-          python -m nuitka --onefile --standalone --follow-imports main.py   
+          python -m nuitka --onefile --standalone --follow-imports --assume-yes-for-downloads main.py  
+          move main.exe win64.exe 
       - name: Create Release
         uses: ncipollo/release-action@v1.12.0
         with:
-          artifacts: "main.exe"
+          artifacts: "win64.exe"
           bodyFile: "README.md"
           allowUpdates: true
           tag: "v1.0.0"
