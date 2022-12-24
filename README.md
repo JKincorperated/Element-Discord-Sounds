@@ -3,7 +3,7 @@
 A simple script that replaces elements data with a modified version so you get discord sounds.
 
 ## Sounds
-* Busy Tone replaced with discords unmute sound.
+* Busy Tone replaced with the discord unmute sound.
 * Calling sound has been replaced with the discord ringtone remix :)
 * All other sounds as normal
 
