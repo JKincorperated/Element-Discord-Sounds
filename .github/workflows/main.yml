@@ -24,7 +24,7 @@ jobs:
           python -m pip install -r ./requirements.txt  
       - name: Compile
         run: |
-          python -m nuitka --onefile --standalone --follow-imports --assume-yes-for-downloads main.py  
+          python -m nuitka --onefile --standalone --follow-imports --assume-yes-for-downloads --windows-company-name=JKinc --windows-product-name="Element Sound Fixer" --windows-icon-from-ico=icon.ico main.py  
           move main.exe win64.exe 
       - name: Create Release
         uses: ncipollo/release-action@v1.12.0
