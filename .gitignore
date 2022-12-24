@@ -3,3 +3,4 @@
 *.bat
 *.onefile-build
 *.exe
+venv
