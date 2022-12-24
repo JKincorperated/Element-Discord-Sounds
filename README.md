@@ -11,3 +11,4 @@ A simple script that replaces elements data with a modified version so you get d
 1. Download the python file or the compiled script.
 2. Execute the script
 3. Profit
+
