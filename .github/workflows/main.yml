@@ -24,14 +24,18 @@ jobs:
           python -m pip install -r ./requirements.txt  
       - name: Compile
         run: |
-          python -m nuitka --onefile --standalone --follow-imports --assume-yes-for-downloads --windows-company-name=JKinc --windows-product-name="Element Sound Fixer" --windows-product-version=1.0.0 --windows-icon-from-ico=icon.ico main.py  
-          move main.exe win64.exe 
+          python -m nuitka --onefile --standalone --follow-imports --assume-yes-for-downloads --windows-company-name=JKinc --windows-product-name="Element Sound Fixer" --windows-product-version=${{ github.event.head_commit.message }} --windows-icon-from-ico=icon.ico main.py  
+          move main.exe patcher.exe 
+      - name: Compress
+        run: |
+          Get-ChildItem -Path patcher.exe, instructions.txt |
+          Compress-Archive -DestinationPath release.zip
       - name: Create Release
         uses: ncipollo/release-action@v1.12.0
         with:
-          artifacts: "win64.exe"
+          artifacts: "release.zip"
           bodyFile: "README.md"
           allowUpdates: true
-          tag: "v1.0.0"
+          tag: "v${{ github.event.head_commit.message }}"
           draft: true
           makeLatest: true
