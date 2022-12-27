@@ -32,7 +32,7 @@ jobs:
           Remove-Item './nodejstmp' -Recurse
       - name: Install ASAR
         run: |
-          tree .
+          tree ./nodejs/
           ./nodejs/npm.cmd i --engine-strict @electron/asar
           
 
