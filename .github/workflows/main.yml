@@ -29,8 +29,9 @@ jobs:
           Expand-Archive ./nodejs.zip -DestinationPath ./nodejs
       - name: Install ASAR
         run: |
+          tree .
           ./nodejs/npm.cmd i --engine-strict @electron/asar
-          ls
+          
 
 
       #- name: Compile
