@@ -67,6 +67,8 @@ for i in os.listdir(os.path.join(os.getenv("LOCALAPPDATA"), "element-desktop")):
 
 pathtodata = os.path.join(os.getenv("LOCALAPPDATA"), "element-desktop", "app-" + str(ma) + "." + str(mi) + "." + str(pa), "resources", "webapp.asar")
 
+tempdir = tempfile.mkdtemp()
+
 try:
     os.remove(os.path.join(os.getenv("LOCALAPPDATA"), "element-desktop", "app-" + str(ma) + "." + str(mi) + "." + str(pa), "resources", "webapp.asar.old"))
 except:
@@ -76,11 +78,24 @@ os.rename(pathtodata, os.path.join(os.getenv("LOCALAPPDATA"), "element-desktop",
 
 print(colorama.Fore.LIGHTGREEN_EX, end="")
 
-print("Removed old data")
+print("Backing up original data")
 
 print(colorama.Fore.RESET, end="")
 
 print(colorama.Fore.LIGHTGREEN_EX, end="")
+
+print("Extracting Data Files")
+
+print(colorama.Fore.RESET, end="")
+
+os.system("./nodejs/asar.cmd extract " + os.path.join(os.getenv("LOCALAPPDATA"), "element-desktop", "app-" + str(ma) + "." + str(mi) + "." + str(pa), "resources", "webapp.asar.old") + " " + tempdir)
+
+print(colorama.Fore.LIGHTGREEN_EX, end="")
+
+print(tempdir)
+
+exit(0)
+
 print("Downloading Patch")
 print(colorama.Fore.RESET, end="")
 
@@ -93,7 +108,9 @@ with DownloadProgressBar(unit='B', unit_scale=True,
         urllib.request.urlretrieve("https://github.com/JKincorperated/Element-Discord-Sounds/raw/main/webapp.asar", filename=name, reporthook=t.update_to)
 
 print(colorama.Fore.LIGHTGREEN_EX, end="")
+
 print("Installing Patch")
+
 print(colorama.Fore.RESET, end="")
 
 shutil.copyfile(name, pathtodata)
