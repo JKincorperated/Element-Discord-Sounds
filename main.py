@@ -82,20 +82,6 @@ print("Backing up original data")
 
 print(colorama.Fore.RESET, end="")
 
-print(colorama.Fore.LIGHTGREEN_EX, end="")
-
-print("Extracting Data Files")
-
-print(colorama.Fore.RESET, end="")
-
-os.system("./nodejs/asar.cmd extract " + os.path.join(os.getenv("LOCALAPPDATA"), "element-desktop", "app-" + str(ma) + "." + str(mi) + "." + str(pa), "resources", "webapp.asar.old") + " " + tempdir)
-
-print(colorama.Fore.LIGHTGREEN_EX, end="")
-
-print(tempdir)
-
-exit(0)
-
 print("Downloading Patch")
 print(colorama.Fore.RESET, end="")
 
