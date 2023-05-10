@@ -6,6 +6,7 @@ import os
 import shutil
 import time
 
+
 colorama.init()
 
 class DownloadProgressBar(tqdm):
